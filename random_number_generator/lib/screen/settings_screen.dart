@@ -45,7 +45,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     });
                   }),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop(maxNumber.toInt());
+                },
                 style: ElevatedButton.styleFrom(backgroundColor: RED_COLOR),
                 child: const Text('저장!'),
               ),
