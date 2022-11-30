@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/hello_world_project/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/hello_world_project/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/hello_world_project/build" />
+      <excludeFolder url="file://$MODULE_DIR$/random_number_generator/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/random_number_generator/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/random_number_generator/build" />
+      <excludeFolder url="file://$MODULE_DIR$/image_carousel/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/image_carousel/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/image_carousel/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/build" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/build" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/navigation/build" />
+      <excludeFolder url="file://$MODULE_DIR$/navigation/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/navigation/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/buttons/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/buttons/build" />
+      <excludeFolder url="file://$MODULE_DIR$/buttons/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/build" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/build" />
+      <excludeFolder url="file://$MODULE_DIR$/u_and_i/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/u_and_i/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/u_and_i/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/row_and_column/build" />
+      <excludeFolder url="file://$MODULE_DIR$/row_and_column/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/row_and_column/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/splach_screen/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/splach_screen/build" />
+      <excludeFolder url="file://$MODULE_DIR$/splach_screen/.dart_tool" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
