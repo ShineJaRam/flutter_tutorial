@@ -19,17 +19,46 @@ class _HomeScreenState extends State<HomeScreen> {
     zoom: 15,
   );
 
+  static final double distance = 100;
+
+  static final Circle circle = Circle(
+    circleId: CircleId('circle'),
+    center: companyLatLng,
+    fillColor: Colors.blue.withOpacity(0.5),
+    radius: distance,
+    strokeColor: Colors.blue,
+    strokeWidth: 1,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: renderAppBar(),
-      body: Column(
-        children: [
-          _CustomGoogleMap(
-            initialPosition: initialPosition,
-          ),
-          _ChoolCheckButton(),
-        ],
+      body: FutureBuilder(
+        future: checkPermission(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (snapshot.data == '위치 권한이 허가되었습니다.') {
+            return Column(
+              children: [
+                _CustomGoogleMap(
+                  initialPosition: initialPosition,
+                  circle: circle,
+                ),
+                _ChoolCheckButton(),
+              ],
+            );
+          }
+
+          return Center(
+            child: Text(snapshot.data),
+          );
+        },
       ),
     );
   }
@@ -74,9 +103,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class _CustomGoogleMap extends StatelessWidget {
   final CameraPosition initialPosition;
+  final Circle circle;
 
   const _CustomGoogleMap({
     required this.initialPosition,
+    required this.circle,
     Key? key,
   }) : super(key: key);
 
@@ -87,6 +118,9 @@ class _CustomGoogleMap extends StatelessWidget {
       child: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: initialPosition,
+        myLocationEnabled: true,
+        myLocationButtonEnabled: false,
+        circles: Set.from([circle]),
       ),
     );
   }
