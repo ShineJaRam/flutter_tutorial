@@ -11,20 +11,21 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool choolCheckDone = false;
+  GoogleMapController? mapController;
 
-  static final LatLng companyLatLng = LatLng(
+  static const LatLng companyLatLng = LatLng(
     37.302074772203, // 위도
     126.9783372549, // 경도
   );
-  static final CameraPosition initialPosition = CameraPosition(
+  static const CameraPosition initialPosition = CameraPosition(
     target: companyLatLng,
     zoom: 15,
   );
 
-  static final double okDistance = 100;
+  static const double okDistance = 100;
 
   static final Circle withInDistanceCircle = Circle(
-    circleId: CircleId('withInDistanceCircle'),
+    circleId: const CircleId('withInDistanceCircle'),
     center: companyLatLng,
     fillColor: Colors.blue.withOpacity(0.5),
     radius: okDistance,
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   );
 
   static final Circle notWithInDistanceCircle = Circle(
-    circleId: CircleId('notWithInDistanceCircle'),
+    circleId: const CircleId('notWithInDistanceCircle'),
     center: companyLatLng,
     fillColor: Colors.red.withOpacity(0.5),
     radius: okDistance,
@@ -42,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   );
 
   static final Circle checkDoneCircle = Circle(
-    circleId: CircleId('checkDoneCircle'),
+    circleId: const CircleId('checkDoneCircle'),
     center: companyLatLng,
     fillColor: Colors.green.withOpacity(0.5),
     radius: okDistance,
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
     strokeWidth: 1,
   );
 
-  static final Marker marker = Marker(
+  static const Marker marker = Marker(
     markerId: MarkerId('marker'),
     position: companyLatLng,
   );
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   if (snapshot.hasData) {
                     final start = snapshot.data!;
-                    final end = companyLatLng;
+                    const end = companyLatLng;
 
                     final distance = Geolocator.distanceBetween(
                       start.latitude,
@@ -100,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ? withInDistanceCircle
                                 : notWithInDistanceCircle,
                         marker: marker,
+                        onMapCreated: onMapCreated,
                       ),
                       _ChoolCheckButton(
                         isWithInRange: isWithInRange,
@@ -119,25 +121,29 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   onChoolCheckPressed() async {
     final result = await showDialog(
         context: context,
         builder: (BuildContext buildContext) {
           return AlertDialog(
-            title: Text('출근하기'),
-            content: Text('출근을 하시겠습니까?'),
+            title: const Text('출근하기'),
+            content: const Text('출근을 하시겠습니까?'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(false);
                 },
-                child: Text('취소'),
+                child: const Text('취소'),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(true);
                 },
-                child: Text('출근하기'),
+                child: const Text('출근하기'),
               ),
             ],
           );
@@ -176,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar renderAppBar() {
     return AppBar(
-      title: Text(
+      title: const Text(
         '오늘도 출근',
         style: TextStyle(
           color: Colors.blue,
@@ -184,6 +190,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       backgroundColor: Colors.white,
+      actions: [
+        IconButton(
+          onPressed: () async {
+            if (mapController == null) {
+              return;
+            }
+
+            final location = await Geolocator.getCurrentPosition();
+
+            mapController!.animateCamera(
+              CameraUpdate.newLatLng(
+                LatLng(
+                  location.latitude,
+                  location.longitude,
+                ),
+              ),
+            );
+          },
+          icon: const Icon(Icons.my_location),
+          color: Colors.blue,
+        )
+      ],
     );
   }
 }
@@ -192,11 +220,13 @@ class _CustomGoogleMap extends StatelessWidget {
   final CameraPosition initialPosition;
   final Circle circle;
   final Marker marker;
+  final MapCreatedCallback onMapCreated;
 
   const _CustomGoogleMap({
     required this.initialPosition,
     required this.circle,
     required this.marker,
+    required this.onMapCreated,
     Key? key,
   }) : super(key: key);
 
@@ -211,6 +241,7 @@ class _CustomGoogleMap extends StatelessWidget {
         myLocationButtonEnabled: false,
         circles: Set.from([circle]),
         markers: Set.from([marker]),
+        onMapCreated: onMapCreated,
       ),
     );
   }
@@ -249,7 +280,7 @@ class _ChoolCheckButton extends StatelessWidget {
           if (!choolCheckDone && isWithInRange)
             TextButton(
               onPressed: onPressed,
-              child: Text('출근하기'),
+              child: const Text('출근하기'),
             ),
         ],
       ),
