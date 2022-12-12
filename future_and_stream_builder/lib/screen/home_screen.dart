@@ -19,15 +19,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: FutureBuilder(
-          future: getNumber(),
-          builder: (context, snapshot) {
+        child: StreamBuilder<int>(
+          stream: streamNumber(),
+          builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Future Builder',
+                  'Stream Builder',
                   style: textStyle.copyWith(
                     fontWeight: FontWeight.w700,
                     fontSize: 20,
@@ -45,11 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Error : ${snapshot.error}',
                   style: textStyle,
                 ),
-                ElevatedButton(onPressed: () {
-                  setState(() {
-
-                  });
-                }, child: Text('Set State',style: textStyle,),),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: Text(
+                    'Set State',
+                    style: textStyle,
+                  ),
+                ),
               ],
             );
           },
@@ -63,6 +67,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final random = Random();
 
+    // throw Exception('에러가 발생했습니다.');
+
     return random.nextInt(100);
+  }
+
+  Stream<int> streamNumber() async* {
+    for (int i = 0; i < 10; i++) {
+      await Future.delayed(
+        Duration(
+          seconds: 1,
+        ),
+      );
+
+      yield i;
+    }
   }
 }
