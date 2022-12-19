@@ -54,6 +54,30 @@
       <excludeFolder url="file://$MODULE_DIR$/chool_check/ios/.symlinks/plugins/geolocator_apple/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/chool_check/ios/.symlinks/plugins/geolocator_apple/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/chool_check/ios/.symlinks/plugins/geolocator_apple/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/video_player_avfoundation/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/future_and_stream_builder/build" />
+      <excludeFolder url="file://$MODULE_DIR$/future_and_stream_builder/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/future_and_stream_builder/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/video_call/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/video_call/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/video_call/build" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/build" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/ios/.symlinks/plugins/webview_flutter_wkwebview/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/vid_player/ios/.symlinks/plugins/image_picker_ios/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
