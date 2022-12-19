@@ -54,6 +54,12 @@
       <excludeFolder url="file://$MODULE_DIR$/chool_check/ios/.symlinks/plugins/geolocator_apple/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/chool_check/ios/.symlinks/plugins/geolocator_apple/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/chool_check/ios/.symlinks/plugins/geolocator_apple/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/future_and_stream_builder/build" />
+      <excludeFolder url="file://$MODULE_DIR$/future_and_stream_builder/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/future_and_stream_builder/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/video_call/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/video_call/build" />
+      <excludeFolder url="file://$MODULE_DIR$/video_call/.pub" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
