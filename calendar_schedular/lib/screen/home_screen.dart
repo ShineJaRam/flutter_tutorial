@@ -1,8 +1,22 @@
 import 'package:calendar_schedular/components/calendar.dart';
+import 'package:calendar_schedular/components/schedule_card.dart';
+import 'package:calendar_schedular/components/today_banner.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  DateTime selectedDay = DateTime(
+    DateTime.now().year,
+    DateTime.now().month,
+    DateTime.now().day,
+  );
+  DateTime focusedDay = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -10,10 +24,37 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Calendar(),
+            Calendar(
+              selectedDay: selectedDay,
+              focusedDay: focusedDay,
+              onDaySelected: onDaySelected,
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            TodayBanner(
+              selectedDay: selectedDay,
+              scheduleCount: 3,
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            ScheduleCard(
+              startTime: 8,
+              endTime: 9,
+              content: '프로그래밍 공부하기',
+              color: Colors.red,
+            ),
           ],
         ),
       ),
     );
+  }
+
+  onDaySelected(DateTime selectedDay, DateTime focusedDay) {
+    setState(() {
+      this.selectedDay = selectedDay;
+      this.focusedDay = selectedDay;
+    });
   }
 }
