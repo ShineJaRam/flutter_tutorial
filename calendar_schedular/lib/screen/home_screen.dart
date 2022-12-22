@@ -1,6 +1,8 @@
 import 'package:calendar_schedular/components/calendar.dart';
+import 'package:calendar_schedular/components/schedule_bottom_sheet.dart';
 import 'package:calendar_schedular/components/schedule_card.dart';
 import 'package:calendar_schedular/components/today_banner.dart';
+import 'package:calendar_schedular/const/colors.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: renderFloatingActionButton(),
       body: SafeArea(
         child: Column(
           children: [
@@ -39,27 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 8.0,
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: ListView.separated(
-                  itemCount: 10,
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      height: 8.0,
-                    );
-                  },
-                  itemBuilder: (conext, index) {
-                    return ScheduleCard(
-                      startTime: 8,
-                      endTime: 9,
-                      content: '프로그래밍 공부하기 $index',
-                      color: Colors.red,
-                    );
-                  },
-                ),
-              ),
-            ),
+            _ScheduleList(),
           ],
         ),
       ),
@@ -71,5 +54,52 @@ class _HomeScreenState extends State<HomeScreen> {
       this.selectedDay = selectedDay;
       this.focusedDay = selectedDay;
     });
+  }
+
+  Widget renderFloatingActionButton() {
+    return FloatingActionButton(
+      onPressed: () {
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          builder: (_) {
+            return ScheduleBottomSheet();
+          },
+        );
+      },
+      backgroundColor: PRIMARY_COLOR,
+      child: const Icon(
+        Icons.add,
+      ),
+    );
+  }
+}
+
+class _ScheduleList extends StatelessWidget {
+  const _ScheduleList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: ListView.separated(
+          itemCount: 10,
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 8.0,
+            );
+          },
+          itemBuilder: (conext, index) {
+            return ScheduleCard(
+              startTime: 8,
+              endTime: 9,
+              content: '프로그래밍 공부하기 $index',
+              color: Colors.red,
+            );
+          },
+        ),
+      ),
+    );
   }
 }
