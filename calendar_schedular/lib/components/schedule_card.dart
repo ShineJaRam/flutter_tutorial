@@ -1,3 +1,4 @@
+import 'package:calendar_schedular/const/colors.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleCard extends StatelessWidget {
@@ -17,10 +18,32 @@ class ScheduleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
-        children: [
-          _Time(startTime: startTime, endTime: endTime),
-        ],
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 1.0,
+          color: PRIMARY_COLOR,
+        ),
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        // 추후 공부 필요: IntrinsicHeight
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              _Time(startTime: startTime, endTime: endTime),
+              const SizedBox(
+                width: 16.0,
+              ),
+              _Content(content: content),
+              const SizedBox(
+                width: 16.0,
+              ),
+              _Category(color: color),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -38,13 +61,63 @@ class _Time extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle();
+    const textStyle = TextStyle(
+      fontWeight: FontWeight.w600,
+      color: PRIMARY_COLOR,
+      fontSize: 16.0,
+    );
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('${startTime.toString().padLeft(2, '0')}:00'),
-        Text('${endTime.toString().padLeft(2, '0')}:00'),
+        Text(
+          '${startTime.toString().padLeft(2, '0')}:00',
+          style: textStyle,
+        ),
+        Text(
+          '${endTime.toString().padLeft(2, '0')}:00',
+          style: textStyle.copyWith(
+            fontSize: 10.0,
+          ),
+        ),
       ],
+    );
+  }
+}
+
+class _Content extends StatelessWidget {
+  final String content;
+
+  const _Content({
+    required this.content,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Text(content),
+    );
+  }
+}
+
+class _Category extends StatelessWidget {
+  final Color color;
+
+  const _Category({
+    required this.color,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: color,
+        shape: BoxShape.circle,
+      ),
+      width: 16.0,
+      height: 16.0,
     );
   }
 }
