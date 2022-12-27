@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 8.0,
             ),
-            _ScheduleList(),
+            const _ScheduleList(),
           ],
         ),
       ),

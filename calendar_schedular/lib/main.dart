@@ -9,7 +9,9 @@ void main() async {
 
   await initializeDateFormatting();
 
-  runApp(MaterialApp(
-    home: HomeScreen(),
-  ));
+  runApp(
+    const MaterialApp(
+      home: HomeScreen(),
+    ),
+  );
 }

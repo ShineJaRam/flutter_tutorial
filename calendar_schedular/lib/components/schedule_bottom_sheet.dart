@@ -27,13 +27,13 @@ class ScheduleBottomSheet extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   _Time(),
-                  const SizedBox(height: 16.0),
+                  SizedBox(height: 16.0),
                   _Contents(),
-                  const SizedBox(height: 16.0),
+                  SizedBox(height: 16.0),
                   _ColorPicker(),
-                  const SizedBox(height: 8.0),
+                  SizedBox(height: 8.0),
                   _SaveButton(),
                 ],
               ),
@@ -51,14 +51,14 @@ class _Time extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: const [
         Expanded(
           child: CustomTextField(
             label: '시작 시간',
             isTime: true,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           width: 16.0,
         ),
         Expanded(
@@ -77,7 +77,7 @@ class _Contents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return const Expanded(
       child: CustomTextField(
         label: '내용',
         isTime: false,
