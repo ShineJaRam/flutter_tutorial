@@ -18,6 +18,7 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
   int? startTime;
   int? endTime;
   String? contents;
+  int? selectedColorId;
 
   @override
   Widget build(BuildContext context) {
@@ -64,15 +65,7 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                         future: GetIt.I<LocalDatabase>().getCategoryColors(),
                         builder: (context, snapshot) {
                           return _ColorPicker(
-                            colors: snapshot.hasData
-                                ? snapshot.data!
-                                    .map(
-                                      (e) => Color(
-                                        int.parse('FF${e.hexCode}', radix: 16),
-                                      ),
-                                    )
-                                    .toList()
-                                : [],
+                            colors: snapshot.hasData ? snapshot.data! : [],
                           );
                         }),
                     const SizedBox(height: 8.0),
@@ -167,7 +160,7 @@ class _Contents extends StatelessWidget {
 }
 
 class _ColorPicker extends StatelessWidget {
-  final List<Color> colors;
+  final List<CategoryColor> colors;
 
   const _ColorPicker({
     required this.colors,
@@ -187,11 +180,11 @@ class _ColorPicker extends StatelessWidget {
     );
   }
 
-  Widget renderColor(Color color) {
+  Widget renderColor(CategoryColor color) {
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: color,
+        color: Color(int.parse('FF${color.hexCode}', radix: 16)),
       ),
       width: 32.0,
       height: 32.0,
